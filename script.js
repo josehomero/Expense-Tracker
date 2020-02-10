@@ -2,13 +2,26 @@
 var trItems = document.getElementById('tabel-row-items');
 const button = document.getElementById('button');
 const form = document.querySelector('form');
-let whenInput = form.elements.when;
+
 
 
 button.addEventListener('click', function(e) {
     e.preventDefault();
-    console.log(form.whenInput.value);
-    //I was trying to grab the form and when input on the line above this one
+    var typeInput = form.type;
+    createTrElement(typeInput.value);
+    typeInput.value = '';
+    
+    var whenInput = form.when;
+    createTrElement(whenInput.value);
+    whenInput.value = '';
+
+    var whereInput = form.where;
+    createTrElement(whereInput.value);
+    whereInput.value = '';
+
+    var costInput = form.cost;
+    createTrElement(costInput.value);
+    costInput.value = '';
 });
 
 
