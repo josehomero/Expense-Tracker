@@ -1,10 +1,6 @@
-
-var trItems = document.getElementById('tabel-row-items');
-const button = document.getElementById('button');
 const form = document.querySelector('form');
 
-
-
+const button = document.getElementById('button');
 button.addEventListener('click', function(e) {
     e.preventDefault();
     var typeInput = form.type;
@@ -24,7 +20,7 @@ button.addEventListener('click', function(e) {
     costInput.value = '';
 });
 
-
+var trItems = document.getElementById('table-row-items');
 const createTrElement = function (text) {
     var expenseTd = document.createElement('td');
     expenseTd.textContent = text;
