@@ -20,9 +20,17 @@ button.addEventListener('click', function(e) {
     costInput.value = '';
 });
 
+
 var trItems = document.getElementById('table-row-items');
 const createTrElement = function (text) {
+
+    const tableBody = document.getElementById('table-body');
+    var row = tableBody.insertRow(0);
+    
+    insertItems = row.expenseTd(0);
     var expenseTd = document.createElement('td');
     expenseTd.textContent = text;
     trItems.appendChild(expenseTd);
 };
+
+console.log(trItems);
