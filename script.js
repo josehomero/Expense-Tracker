@@ -1,5 +1,7 @@
 const form = document.querySelector('form');
 
+//this information from line 5 to 23 is to make inputs and they
+//are working as expexted
 const button = document.getElementById('button');
 button.addEventListener('click', function(e) {
     e.preventDefault();
@@ -20,17 +22,15 @@ button.addEventListener('click', function(e) {
     costInput.value = '';
 });
 
-
+// trItems are the tr element in the html file
 var trItems = document.getElementById('table-row-items');
-const createTrElement = function (text) {
+const tableBody = document.getElementById('table-body');
 
-    const tableBody = document.getElementById('table-body');
-    var row = tableBody.insertRow(0);
-    
-    insertItems = row.expenseTd(0);
+//function to append inputs
+const createTrElement = function (text) {
     var expenseTd = document.createElement('td');
     expenseTd.textContent = text;
+    //This is where I need help, the td elements are being 
+    //appended on the same row
     trItems.appendChild(expenseTd);
 };
-
-console.log(trItems);
