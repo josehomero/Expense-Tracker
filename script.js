@@ -26,7 +26,12 @@ button.addEventListener('click', function(e) {
 var trItems = document.getElementById('table-row-items');
 const tableBody = document.getElementById('table-body');
 
+const table = document.getElementById('my-table');
+var row = table.insertRow(-1);
+console.log(row);
+row.insertCell(0).textContent = "new data";
 //function to append inputs
+
 const createTrElement = function (text) {
     var expenseTd = document.createElement('td');
     expenseTd.textContent = text;
