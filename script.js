@@ -1,41 +1,40 @@
 const form = document.querySelector('form');
 
-//this information from line 5 to 23 is to make inputs and they
-//are working as expexted
 const button = document.getElementById('button');
 button.addEventListener('click', function(e) {
     e.preventDefault();
-    var typeInput = form.type;
-    createTrElement(typeInput.value);
-    typeInput.value = '';
-    
-    var whenInput = form.when;
-    createTrElement(whenInput.value);
-    whenInput.value = '';
+    var typeInput = form.type.value;
+    var whenInput = form.when.value;
+    var whereInput = form.where.value;
+    var costInput = form.cost.value;
 
-    var whereInput = form.where;
-    createTrElement(whereInput.value);
-    whereInput.value = '';
+    createTrElement(typeInput,whenInput,whereInput,costInput);
 
-    var costInput = form.cost;
-    createTrElement(costInput.value);
-    costInput.value = '';
+    form.type.value = '';
+    form.when.value = '';
+    form.where.value = '';
+    form.cost.value = '';
 });
 
-// trItems are the tr element in the html file
+//button.addEventListener('click', function(e) {
+  //  var expenseTr = document.createElement('tr');
+    //tableBody.appendChild(expenseTr);
+//})
+
+
 var trItems = document.getElementById('table-row-items');
 const tableBody = document.getElementById('table-body');
 
 const table = document.getElementById('my-table');
-var row = table.insertRow(-1);
-console.log(row);
-row.insertCell(0).textContent = "new data";
-//function to append inputs
+//var row = table.insertRow(-1);
+//console.log(row);
+//row.insertCell(0).textContent = "new data";
 
-const createTrElement = function (text) {
-    var expenseTd = document.createElement('td');
-    expenseTd.textContent = text;
-    //This is where I need help, the td elements are being 
-    //appended on the same row
-    trItems.appendChild(expenseTd);
+console.log(tableBody);
+
+const createTrElement = function(type,when,where,cost) {
+    console.log("Type: ", type);
+    console.log("When: ", when);
+    console.log("Where: ", where);
+    console.log("Cost: ", cost);
 };
