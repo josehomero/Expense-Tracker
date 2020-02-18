@@ -19,31 +19,43 @@ button.addEventListener('click', function(e) {
     form.cost.value = '';
 });
 
-
-var trItems = document.getElementById('table-row-items');
 const tableBody = document.getElementById('table-body');
 
 const table = document.getElementById('my-table');
 
-const createTdElement = function(text) {
+const createTdElement = function(type,when,where,cost) {
     var tR = document.createElement('tr');
     tableBody.appendChild(tR);
 
+    var deleteBtn = createDeleteButton()
+    tR.appendChild(deleteBtn);
+
+
     var typeTd = document.createElement('td');
-    typeTd.textContent = text;
+    typeTd.textContent = type;
     tR.appendChild(typeTd);
 
     var whenTd = document.createElement('td');
-    whenTd.textContent = text;
+    whenTd.textContent = when;
     tR.appendChild(whenTd);
 
     var whereTd = document.createElement('td');
-    whereTd.textContent = text;
+    whereTd.textContent = where;
     tR.appendChild(whereTd);
 
     var costTd = document.createElement('td');
-    costTd.textContent = text;
+    costTd.textContent = cost;
     tR.appendChild(costTd);
-
 };
 
+function createDeleteButton() {
+    const deleteBtn = document.createElement('button');
+    deleteBtn.appendChild(document.createTextNode('X'));
+    deleteBtn.addEventListener('click', function(e) {
+        if(e.target.textContent.includes('X')) {
+            var removeTr = e.target.parentElement;
+            tableBody.removeChild(removeTr);
+        }
+    });
+    return deleteBtn;
+}
