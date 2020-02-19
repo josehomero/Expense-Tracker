@@ -1,18 +1,13 @@
 const form = document.querySelector('form');
-
-//The buuton from the html is called
 const button = document.getElementById('button');
-//button is applied to eventListener
 button.addEventListener('click', function(e) {
     e.preventDefault();
-    //variables are made to target the different inputs in the html bt their names
     var typeInput = form.type.value;
     var whenInput = form.when.value;
     var whereInput = form.where.value;
     var costInput = form.cost.value;
-    //createTrElement is applied to the different variables
+
     createTdElement(typeInput,whenInput,whereInput,costInput);
-    //a string value is given to the variables to allow the inserted data to pass
     form.type.value = '';
     form.when.value = '';
     form.where.value = '';
@@ -21,14 +16,14 @@ button.addEventListener('click', function(e) {
 
 const tableBody = document.getElementById('table-body');
 
-const table = document.getElementById('my-table');
-
 const createTdElement = function(type,when,where,cost) {
     var tR = document.createElement('tr');
     tableBody.appendChild(tR);
 
+    var buttonTd = document.createElement('td');
     var deleteBtn = createDeleteButton()
-    tR.appendChild(deleteBtn);
+    buttonTd.appendChild(deleteBtn);
+    tR.appendChild(buttonTd);
 
 
     var typeTd = document.createElement('td');

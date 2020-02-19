@@ -4,8 +4,20 @@ body {
 
 h1 {
     text-align: center;
+    padding: 10px;
 }
 
-table {
-    border-spacing: 0.5rem;
+th {
+    text-align: center;
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+form {
+    text-align: center;
+    padding: 10px;
 }
