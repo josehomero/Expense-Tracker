@@ -1,46 +1,52 @@
-const form = document.querySelector('form');
+const tableBody = document.getElementById('table-body');
 const button = document.getElementById('button');
-button.addEventListener('click', function(e) {
-    e.preventDefault();
-    var typeInput = form.type.value;
-    var whenInput = form.when.value;
-    var whereInput = form.where.value;
-    var costInput = form.cost.value;
 
-    createTdElement(typeInput,whenInput,whereInput,costInput);
+button.addEventListener('click', function(e) {  
+    const form = document.querySelector('form');
+
+    e.preventDefault();
+    const type = form.type.value;
+    const date = form.date.value;
+    const description = form.description.value;
+    const amount = form.amount.value;
+
+    if (type === '' || date === '' || description === '' || amount === '') {
+        alert("Please fill out all the information in the form!");
+        return;
+    }
+
+    createTdElement(type, date, description, amount);
     form.type.value = '';
-    form.when.value = '';
-    form.where.value = '';
-    form.cost.value = '';
+    form.date.value = '';
+    form.description.value = '';
+    form.amount.value = '';
 });
 
-const tableBody = document.getElementById('table-body');
-
-const createTdElement = function(type,when,where,cost) {
-    var tR = document.createElement('tr');
-    tableBody.appendChild(tR);
+const createTdElement = function(type, when, where, cost) {
+    var tr = document.createElement('tr');
+    tableBody.appendChild(tr);
 
     var buttonTd = document.createElement('td');
     var deleteBtn = createDeleteButton()
     buttonTd.appendChild(deleteBtn);
-    tR.appendChild(buttonTd);
+    tr.appendChild(buttonTd);
 
 
     var typeTd = document.createElement('td');
     typeTd.textContent = type;
-    tR.appendChild(typeTd);
+    tr.appendChild(typeTd);
 
-    var whenTd = document.createElement('td');
-    whenTd.textContent = when;
-    tR.appendChild(whenTd);
+    var dateTd = document.createElement('td');
+    dateTd.textContent = when;
+    tr.appendChild(dateTd);
 
-    var whereTd = document.createElement('td');
-    whereTd.textContent = where;
-    tR.appendChild(whereTd);
+    var descriptionTd = document.createElement('td');
+    descriptionTd.textContent = where;
+    tr.appendChild(descriptionTd);
 
-    var costTd = document.createElement('td');
-    costTd.textContent = cost;
-    tR.appendChild(costTd);
+    var amountTd = document.createElement('td');
+    amountTd.textContent = cost;
+    tr.appendChild(amountTd);
 };
 
 function createDeleteButton() {
@@ -48,8 +54,8 @@ function createDeleteButton() {
     deleteBtn.appendChild(document.createTextNode('X'));
     deleteBtn.addEventListener('click', function(e) {
         if(e.target.textContent.includes('X')) {
-            var removeTr = e.target.parentElement;
-            tableBody.removeChild(removeTr);
+            var tr = e.target.parentElement.parentElement;
+            tableBody.removeChild(tr);
         }
     });
     return deleteBtn;

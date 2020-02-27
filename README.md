@@ -11,9 +11,9 @@ Check it out https://josehomero.github.io/Expense-Tracker/
 
 ## Summary
 
-My Expense-Tracker a challenging and simple app made to help anyone keep track of their expenses.
+My Expense-Tracker a challenging and simple app made to help anyone keep track of their expenses. The most challenging part for me on making this was figuring out how to make two elements and figuring out how to place one of those elements insise the other one.
 
-This project really helped me solitify what I've learned so far and build upon it as well. Every step forward is a victory and to me this is quite the accomplishment.
+This project really helped me solidify what I've learned so far and build upon it as well. Every step forward is a victory and to me this is quite the accomplishment.
 
 ## Author
 
